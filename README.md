@@ -1,0 +1,2 @@
+- fix click affect on mobile
+- fix horizontal scroll bar on mobile
