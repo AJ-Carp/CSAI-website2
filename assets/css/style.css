@@ -18,6 +18,9 @@
 
 html{scroll-behavior:smooth}
 body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin:0;
   font-family: ui-sans-serif, system-ui, "Inter", "Segoe UI", Roboto, Arial, sans-serif;
   background: radial-gradient(1200px 600px at 10% 0%, #ecf7ff, transparent 60%),
@@ -281,7 +284,7 @@ a:hover{text-decoration: underline}
   border: 1px solid rgba(255,255,255,0.15);
   box-shadow: 0 16px 40px rgba(0,0,0,0.18);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -533,7 +536,7 @@ a:hover{text-decoration: underline}
 
 /* ===== Footer ===== */
 .footer{
-  margin-top: 60px;
+  margin-top: auto;
   border-top:1px solid var(--glass-line);
   background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
   padding: 24px; text-align:center; color:#3a4366
@@ -692,12 +695,6 @@ a:hover{text-decoration: underline}
   align-items: center;
   justify-content: center;
 }
-.open-sidebar-button {
-  svg {
-    height: 100px;
-    width: 100px;
-  }
-}
 .drawer-nav .open-sidebar-button svg,
 .drawer-nav .close-sidebar-button svg {
   width: 32px; height: 32px;  /* bigger icon */
@@ -726,13 +723,34 @@ a:hover{text-decoration: underline}
   box-shadow: 0 6px 18px rgba(122,92,255,0.18);
 }
 
+body{
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  min-height:100dvh;
+}
+
+/* header narrower + centered */
+.header{
+  grid-column:1 / -1;     /* span full grid row */
+  max-width:1200px;       /* <-- adjust this number to taste */
+  width:100%;
+  margin:0 auto;          /* center it */
+}
+
+/* footer still hugs bottom */
+.footer{ margin-top:0; }
+
 /* =================== Mobile =================== */
 @media (max-width: 640px){
-  
+  .header{
+    max-width:95%; /* or none if you want true edge-to-edge */
+  }
+  /* since we're not using flex on body anymore */
+  .footer{ margin-top:0; }
+
   .hamburger { width:48px !important; height:48px !important; display:block; }
   .drawer-nav .open-sidebar-button { display: inline-flex; }
   .container{ margin: 0;}
-
 
   .drawer-nav .links-container {
     position: fixed;
@@ -757,6 +775,10 @@ a:hover{text-decoration: underline}
     z-index: 45;
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
+
   .drawer-nav .links-container::before {
     content: "";
     height: 54px;
@@ -777,15 +799,15 @@ a:hover{text-decoration: underline}
     border: 1px solid var(--glass-line, rgba(10,20,40,0.10));
     border-radius: 12px;
   }
-
+/* 
   .drawer-nav .links-container a {
     width: 100%;
     padding: 12px 14px;
     border-radius: 12px;
     background: transparent;
     box-shadow: none;
-  }
-  .drawer-nav .links-container a:hover {
+  } */
+  /* .drawer-nav .links-container a:hover {
     background: linear-gradient(90deg, rgba(0,230,255,.12), rgba(122,92,255,.12));
     box-shadow: 0 10px 28px rgba(122,92,255,0.20);
     transform: translateY(-1px);
@@ -795,6 +817,16 @@ a:hover{text-decoration: underline}
     background: linear-gradient(90deg, rgba(0,230,255,.12), rgba(122,92,255,.12));
     box-shadow: 0 10px 28px rgba(122,92,255,0.20);
     transform: translateY(-1px);
+  } */
+
+  /* remove default outline */
+  .drawer-nav .links-container a:focus { -webkit-tap-highlight-color: transparent; }
+
+  .open-sidebar-button,
+  .close-sidebar-button,
+  .open-sidebar-button *,
+  .close-sidebar-button * {
+    -webkit-tap-highlight-color: transparent;
   }
 
   .drawer-nav #sidebar-active:checked ~ .links-container {
