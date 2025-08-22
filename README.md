@@ -1,2 +1,2 @@
-- fix click affect on mobile
+
 - fix floating footers
