@@ -836,9 +836,8 @@ body{
     transform: translateX(0);
   }
   .drawer-nav #sidebar-active:checked ~ #overlay {
-    /* background-color: red; */
-    height: 100vw;
-    width: 100vw;
+    height: 100vh;
+    width: 100vh;
     position: fixed;
     top: 0;
     left: 0;
