@@ -491,17 +491,26 @@ a:hover{text-decoration: underline}
   display: flex;
   gap: 12px;
   margin-top: 16px;
+  justify-content: center;
 }
 
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
 /* ===== Mobile Calendar Scaling ===== */
 @media (max-width: 768px) {
+  .cal-section {
+    padding: 90px 0 40px 0;
+  }
+  .section .container {
+    margin: 0 auto;
+  }
+
   .calendar {
     padding: 10px;
+
+  }
+
+  .cal-title {
+    text-align: center;
+    font-size: 16px;
   }
 
   .cal-grid {
@@ -527,6 +536,13 @@ a:hover{text-decoration: underline}
   /* Shrink month/year text on mobile */
   .cal-header h2 {
     font-size: 1.2rem;
+  }
+
+  .cal-header .btn {
+    font-size: 15px;    /* text size */
+    padding: 5px 9px;    /* inside spacing */
+    border-radius: 6px;   /* corner rounding */
+    width: 60px;      /* force consistent width */
   }
 }
 
