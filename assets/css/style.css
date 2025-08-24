@@ -842,12 +842,6 @@ body{
     top: 0;
     left: 0;
   }
-  /* kill the gray tap flash on iOS */
-  .drawer-nav #overlay,
-  .drawer-nav .open-sidebar-button {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-touch-callout: none;
-  }
   * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
   .drawer-nav .header-container {
