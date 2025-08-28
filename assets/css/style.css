@@ -151,6 +151,10 @@ header .mobile-join {
   color:white; border:none; position:relative; overflow:hidden;
   background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
 }
+.btn.join{
+  color:white; border:none; position:relative; overflow:hidden;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+}
 .btn.primary::after{
   content:""; position:absolute; inset:-2px;
   background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
@@ -683,19 +687,17 @@ header .mobile-join {
 }
 
 
-/* ==== Drawer (Abu final polished) =======================================
+/* ====================== Drawer =======================================
    Hamburger on left, links on right, bigger buttons, less transparent panel
 ======================================================================== */
 .drawer-nav { position: relative; z-index: 40; }
-
-
 
 /* Container */
 .drawer-nav .header-container {
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* spread left/right */
+  justify-content: space-between;
   gap: 8px;
   padding: 6px 12px;
 }
@@ -763,7 +765,16 @@ body{
 /* =================== Mobile =================== */
 @media (max-width: 640px){
   .header{
-    max-width:95%; /* or none if you want true edge-to-edge */
+    max-width: 95%; /* or none if you want true edge-to-edge */
+  }
+  header .nav {
+    padding: 24px 0;
+  }
+  .nav, .drawer-nav, .header-container {
+    width: 100%;
+  }
+  header .nav .drawer-nav .header-container {
+    justify-content: space-between;
   }
   header .mobile-join {
     display: block;
@@ -822,25 +833,6 @@ body{
     border: 1px solid var(--glass-line, rgba(10,20,40,0.10));
     border-radius: 12px;
   }
-/* 
-  .drawer-nav .links-container a {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background: transparent;
-    box-shadow: none;
-  } */
-  /* .drawer-nav .links-container a:hover {
-    background: linear-gradient(90deg, rgba(0,230,255,.12), rgba(122,92,255,.12));
-    box-shadow: 0 10px 28px rgba(122,92,255,0.20);
-    transform: translateY(-1px);
-  }
-
-  .drawer-nav .links-container a:active {
-    background: linear-gradient(90deg, rgba(0,230,255,.12), rgba(122,92,255,.12));
-    box-shadow: 0 10px 28px rgba(122,92,255,0.20);
-    transform: translateY(-1px);
-  } */
 
   /* remove default outline */
   .drawer-nav .links-container a:focus { -webkit-tap-highlight-color: transparent; }
@@ -858,6 +850,10 @@ body{
     pointer-events: auto;
     transform: translateX(0);
   }
+  .drawer-nav #sidebar-active:checked ~ .mobile-join {
+    opacity: 0;
+    transition: .35s ease;
+  }
   .drawer-nav #sidebar-active:checked ~ #overlay {
     height: 100vh;
     width: 100vh;
@@ -867,26 +863,10 @@ body{
   }
   * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
-  .drawer-nav .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 0;   /* remove the padding pushing it in */
-  }
-
   .drawer-nav .open-sidebar-button {
     margin-left: 0;    /* make sure no margin is sneaking in */
   }
 }
-
-
-/* Focus
-.drawer-nav .open-sidebar-button:focus-visible,
-.drawer-nav .close-sidebar-button:focus-visible,
-.drawer-nav .links-container a:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0,230,255,.40);
-} */
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
