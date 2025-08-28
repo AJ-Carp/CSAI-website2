@@ -754,7 +754,7 @@ body{
 /* header narrower + centered */
 .header{
   grid-column:1 / -1;     /* span full grid row */
-  max-width:1200px;       /* <-- adjust this number to taste */
+  max-width:1200px;       
   width:100%;
   margin:0 auto;          /* center it */
 }
@@ -765,7 +765,7 @@ body{
 /* =================== Mobile =================== */
 @media (max-width: 640px){
   .header{
-    max-width: 95%; /* or none if you want true edge-to-edge */
+    max-width: 95%; 
   }
   header .nav {
     padding: 24px 0;
@@ -779,7 +779,7 @@ body{
   header .mobile-join {
     display: block;
   }
-  /* since we're not using flex on body anymore */
+
   .footer{ margin-top:0; }
 
   .hamburger { width:48px !important; height:48px !important; display:block; }
@@ -797,7 +797,7 @@ body{
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    background: rgba(255,255,255,0.9);  /* less transparent */
+    background: rgba(255,255,255,0.9);  
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid var(--glass-line, rgba(10,20,40,0.10));
