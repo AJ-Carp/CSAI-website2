@@ -57,6 +57,10 @@ a:hover{text-decoration: underline}
   padding: 12px 18px;
 }
 
+header .mobile-join {
+  display: none;
+}
+
 /* reduce text size slightly */
 
 
@@ -760,6 +764,9 @@ body{
 @media (max-width: 640px){
   .header{
     max-width:95%; /* or none if you want true edge-to-edge */
+  }
+  header .mobile-join {
+    display: block;
   }
   /* since we're not using flex on body anymore */
   .footer{ margin-top:0; }
